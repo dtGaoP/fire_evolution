@@ -17,5 +17,5 @@ This is an fire Deduction Engine
 ```angular2html
 pip install -r requirements.txt
 ```
-* Run the weather.py to test the environment model.
-* Run the examples/example.py to test the fire model, including fire-resistant model and human damage model.
+* Run the [weather.py](https://github.com/dtGaoP/fire_evolution/blob/master/modules/environments/weather.py) to test the environment model.
+* Run the [example.py](https://github.com/dtGaoP/fire_evolution/blob/master/examples/example.py) to test the fire model, including fire-resistant model and human damage model.
