@@ -407,7 +407,7 @@ def WaveEnvTest():
     #matplotlib.rcParams["animation.ffmpeg_path"] = ffmpegpath
     #writer = animation.FFMpegWriter()
     # ani.save(r"E:\fproject\docs\figs\wave_test.mp4", writer=writer) #保存为mp4文件
-    ani.save(r"F:\ffproject\EmergencyDeduce\v0.6\EmergencyDeductionEngine\docs\figs\wave_evolution.gif")
+    ani.save(r"F:\ffproject\fire_evolution\docs\figs\wave_evolution.gif")
 
 
     # with open (r"F:\ffproject\EmergencyDeducationEngine\docs\figs\wave_test.html", "w") as f:

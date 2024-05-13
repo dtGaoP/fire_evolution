@@ -1,7 +1,7 @@
 # Fire evolution simulation
 This is a fire evolution simulation engine 
 
-![Frameroek](docs/figs/framework.jpg) 
+![Framework](docs/figs/framework.jpg) 
 **Figure 1** Proposed framework of this study
 ![Weather evolution](docs/figs/weather_evolution.gif) 
 **Figure 1** Evolution of six weather conditions (Visibility, brightness, temperature, wind-speed, wind-direction, and rain-fall)

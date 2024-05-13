@@ -517,7 +517,7 @@ def WeatherEnvTest():
                         frames=t,
                         interval=10,
                         repeat=False)
-    ani.save(r"F:\ffproject\EmergencyDeduce\v0.6\EmergencyDeductionEngine\docs\figs\weather_evolution.gif")
+    ani.save(r"F:\ffproject\fire_evolution\docs\figs\weather_evolution.gif")
     #with open (r"F:\ffproject\EmergencyDeducationEngine\docs\figs\weather_test.html", "w") as f:
         #print(ani.to_jshtml(), file = f)      #保存为html文件，可随时间回溯
     #plt.show()

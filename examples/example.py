@@ -2902,35 +2902,38 @@ def fire_scene():
 
     max_step = 200
 
-    def Evolution_plot(retval_1: np.ndarray, retval_2:np.ndarray):
+    def Evolution_plot(retval_1: np.ndarray, retval_2: np.ndarray):
         plt.subplot(2, 4, 1)
         meshval_1 = retval_1.reshape([100, 100])
         im = plt.imshow(meshval_1, interpolation=None, cmap=plt.cm.BuGn, vmin=0, vmax=110)
         im = plt.plot(50, 50, color='red', marker="o")
         im = plt.plot(75, 75, color='green', marker="o")
+        plt.text(55, 45, 'A', fontsize=12, color='red')
+        plt.text(80, 70, 'B', fontsize=12, color='red')
         plt.xlabel('longitude')
         plt.ylabel('latitude')
         cb = plt.colorbar()
         plt.xticks(np.arange(0, 100, 10))  # fixed
         plt.yticks(np.arange(0, 100, 10))  # fixed
         cb.set_label('thermal power(MW)')
-        plt.title('Spatial distribution of thermal power', fontsize='small',fontweight='medium')
+        plt.title('Thermal power evolution', fontsize='small', fontweight='medium')
 
         plt.subplot(2, 4, 2)
         meshval_2 = retval_2.reshape([100, 100])
         # im = plt.imshow(meshval_2, interpolation=None, cmap=plt.cm.BuGn, vmin=0, vmax=10000)
-        #im = plt.imshow((meshval_2>420)*1, interpolation=None, cmap=plt.cm.BuGn, vmin=0, vmax=1)
+        # im = plt.imshow((meshval_2>420)*1, interpolation=None, cmap=plt.cm.BuGn, vmin=0, vmax=1)
         im = plt.imshow(meshval_2, interpolation=None, cmap=plt.cm.BuGn, vmin=400, vmax=10000)
         im = plt.plot(50, 50, color='red', marker="o")
         im = plt.plot(75, 75, color='green', marker="o")
+        plt.text(55, 45, 'A', fontsize=12, color='red')
+        plt.text(80, 70, 'B', fontsize=12, color='red')
         plt.xlabel('longitude')
         plt.ylabel('latitude')
         cb = plt.colorbar()
         plt.xticks(np.arange(0, 100, 10))  # fixed
         plt.yticks(np.arange(0, 100, 10))  # fixed
         cb.set_label('CO concentration(PPM)')
-        plt.title('Spatial distribution of CO concentration', fontsize='small',fontweight='medium')
-
+        plt.title('CO concentration evolution', fontsize='small', fontweight='medium')
 
         ax1 = plt.subplot(2, 4, 3)
         im = plt.plot(x, ya, "r-")
@@ -2938,8 +2941,8 @@ def fire_scene():
         ax1.set_xlabel('time(min)')
         ax1.set_ylabel('thermal power(MW)')
         plt.xlim(0, max_step)
-        plt.ylim(DisasterObj_1.min_value, DisasterObj_1.max_value+10)
-        plt.title('Thermal power curve for the select point', fontsize='small',fontweight='medium')
+        plt.ylim(DisasterObj_1.min_value, DisasterObj_1.max_value + 10)
+        plt.title('Thermal power for points', fontsize='small', fontweight='medium')
 
         ax1 = plt.subplot(2, 4, 4)
         im = plt.plot(x, yc, "r-")
@@ -2947,41 +2950,40 @@ def fire_scene():
         ax1.set_xlabel('time(min)')
         ax1.set_ylabel('CO concentration(PPM)')
         plt.xlim(0, max_step)
-        plt.ylim(DisasterObj_2.min_value, DisasterObj_2.max_value+1000)
-        plt.title('CO concentration curve for the select point', fontsize='small',fontweight='medium')
+        plt.ylim(DisasterObj_2.min_value, DisasterObj_2.max_value + 1000)
+        plt.title('CO concentration for points', fontsize='small', fontweight='medium')
 
         ax1 = plt.subplot(2, 4, 5)
         im = plt.plot(x, y1, "r-")
         ax1.set_xlabel('time(min)')
         ax1.set_ylabel('hit point')
         plt.xlim(0, max_step)
-        plt.ylim(personObj_1.min_value, personObj_1.max_value+10)
-        plt.title('Hit point evolution curve of unit A', fontsize='small',fontweight='medium')
+        plt.ylim(personObj_1.min_value, personObj_1.max_value + 10)
+        plt.title('Hit point of A', fontsize='small', fontweight='medium')
 
         ax1 = plt.subplot(2, 4, 6)
         im = plt.plot(x, y2, "g-")
         ax1.set_xlabel('time(min)')
         ax1.set_ylabel('hit point')
         plt.xlim(0, max_step)
-        plt.ylim(personObj_2.min_value, personObj_2.max_value+10)
-        plt.title('Hit point evolution curve of unit B', fontsize='small',fontweight='medium')
+        plt.ylim(personObj_2.min_value, personObj_2.max_value + 10)
+        plt.title('Hit point of B', fontsize='small', fontweight='medium')
 
         ax1 = plt.subplot(2, 4, 7)
         im = plt.plot(x, y_anti_d, "b-")
         ax1.set_xlabel('time(min)')
         ax1.set_ylabel('dosage of extinguishing agent')
         plt.xlim(0, max_step)
-        plt.ylim(Anti_disasterObj.min_value, Anti_disasterObj.max_value+1)
-        plt.title('Fire unit status', fontsize='small',fontweight='medium')
+        plt.ylim(Anti_disasterObj.min_value, Anti_disasterObj.max_value + 1)
+        plt.title('Fire unit status', fontsize='small', fontweight='medium')
 
         ax1 = plt.subplot(2, 4, 8)
         im = plt.plot(x, y_medical, color="darkcyan", linestyle="-")
         ax1.set_xlabel('time(min)')
         ax1.set_ylabel('healing powers')
         plt.xlim(0, max_step)
-        plt.ylim(Anti_disasterObj.min_value, Anti_disasterObj.max_value+1)
-        plt.title('medical unit status', fontsize='small',fontweight='medium')
-
+        plt.ylim(Anti_disasterObj.min_value, Anti_disasterObj.max_value + 1)
+        plt.title('Medical unit status', fontsize='x-small', fontweight='medium')
 
         plt.subplots_adjust(wspace=0.6, hspace=0.6)
         return im
@@ -3046,7 +3048,7 @@ def fire_scene():
     ani = FuncAnimation(fig2, update_point, frames=t,
                         init_func=init, interval=300, repeat=False)
 
-    ani.save(r"F:\ffproject\EmergencyDeduce\v0.6\EmergencyDeductionEngine\docs\figs\fire_evolution.gif")
+    ani.save(r"F:\ffproject\fire_evolution\docs\figs\fire_evolution.gif")
     # with open (r"E:\ins_project\EmergencyDeduce\v0.6\EmergencyDeductionEngine\docs\figs\multi_units_evolution_0520.html", "w") as f:
     #     print(ani.to_jshtml(), file = f)      #保存为html文件，可随时间回溯
     plt.show()
