@@ -1,5 +1,5 @@
-# Fire evolution engine
-This is an fire Deduction Engine  
+# Fire evolution simulation
+This is a fire evolution simulation engine 
 
 ![Frameroek](docs/figs/framework.jpg) 
 **Figure 1** Proposed framework of this study
